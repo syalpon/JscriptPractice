@@ -37,7 +37,8 @@ jobs:
         uses: tj-actions/changed-files@v10.1
       # 差分のあるファイルを取得
       - name: 差分のあるファイルを取得
-        run: git diff --name-only @^ > diff_file.txt
+        run: |
+          git diff --name-only @^
       # 差分ビルド
       - name: 差分ビルド
         run: diff_file.txt
