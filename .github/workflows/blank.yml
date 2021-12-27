@@ -29,17 +29,17 @@ jobs:
         with:
           fetch-depth: 2
       # 差分取得
-      - name: 差分取得
-        id: changed-files
-        uses: tj-actions/changed-files@v10.1
-      # テスト
-      - uses: ./.github/workflows/composite/diff
-        name: diff
-        id: diff
+      #- name: 差分取得
+      #  id: changed-files
+      #  uses: tj-actions/changed-files@v10.1
+      ## テスト
+      #- uses: ./.github/workflows/composite/diff
+      #  name: diff
+      #  id: diff
       # 差分のあるファイルを取得
       - name: 差分のあるファイルを取得
         run: |
-          git diff --name-only @^
+          git diff --name-only @^ > temp.txt
       # 差分ビルド
       - name: 差分ビルド
         run: ls
