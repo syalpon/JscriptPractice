@@ -34,6 +34,7 @@ jobs:
       # 差分のあるファイルを取得
       - name: 差分のあるファイルを取得
         run: |
+          git pull
           git diff --name-only @^ 
           git diff --name-only @^ > temp.txt
   update:
@@ -42,6 +43,9 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 5
     steps:
+      # フォルダ確認
+      - name: ファイル確認
+        run: dir
       # 差分ビルド
       - name: 差分ビルド
         run: .\text_comvert.bat
