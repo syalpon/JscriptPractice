@@ -59,6 +59,7 @@ jobs:
           dir
       # 成形
       - name: 成形
+        uses: actions/github-script@v3
         run: .\text_comvert.bat
       # batファイル確認
       - name: バッチ確認
