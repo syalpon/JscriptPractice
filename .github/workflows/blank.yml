@@ -9,40 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  #セットアップ
-  setup:
-    name: セットアップ
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    outputs:
-      AWS_ACCOUNT_ID: ${{ steps.setenv.outputs.AWS_ACCOUNT_ID }}
-      STAGE_NAME: ${{ steps.setenv.outputs.STAGE_NAME }}
-    steps:
-      # チェックアウト
-      - name: チェックアウト
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0     
-      # ファイル確認
-      - name: ファイル確認
-        run: |
-          pwd
-          ls
-      # 差分取得
-      - name: 差分取得
-        id: changed-files
-        uses: tj-actions/changed-files@v10.1
-      # テスト
-      - uses: ./.github/workflows/composite/diff
-        name: diff
-        id: diff
-      # 差分のあるファイルを取得
-      - name: 差分のあるファイルを取得
-        run: |
-          git diff --name-only @^ 
-          git diff --name-only @^ > temp.txt
   update:
-    needs: setup
     name: 差分ビルド
     runs-on: windows-latest
     timeout-minutes: 5
