@@ -34,9 +34,11 @@ jobs:
       # 差分のあるファイルを取得
       - name: 差分のあるファイルを取得
         run: |
+          git diff --name-only @^ 
           git diff --name-only @^ > temp.txt
   update:
-    name: セットアップ
+    needs: setup
+    name: 差分ビルド
     runs-on: windows-latest
     timeout-minutes: 5
     steps:
