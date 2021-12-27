@@ -45,8 +45,8 @@ jobs:
       # フォルダ確認
       - name: ファイル確認
         run: |
-        cd JscriptPractice
-        dir
+          cd JscriptPractice
+          dir
       # 差分ビルド
       - name: 差分ビルド
         run: .\JscriptPractice\text_comvert.bat
