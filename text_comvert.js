@@ -32,7 +32,7 @@ function main(args)
         //WScript.echo(words[i]);
     }
     
-    WScript.echo("CHCP 65001");
+    //WScript.echo("CHCP 65001");
     if( jsfile.length != 0)
     {
 
