@@ -22,7 +22,7 @@ jobs:
       - name: チェックアウト
         uses: actions/checkout@v2
         with:
-          fetch-depth: 2
+          fetch-depth: 0
       # 差分取得
       #- name: 差分取得
       #  id: changed-files
@@ -44,5 +44,5 @@ jobs:
     steps:
       # 差分ビルド
       - name: 差分ビルド
-        run: ./text_comvert.bat
+        run: .\text_comvert.bat
         
