@@ -43,7 +43,7 @@ function main(args)
     }
     else
     {
-        WScript.echo("echo JavaScriptファイルの差分はありません");
+        WScript.echo("echo No differences in JavaScript files!!");
     }
 }
 //ファイルオープン
