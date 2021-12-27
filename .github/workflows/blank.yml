@@ -57,7 +57,12 @@ jobs:
         run: |
           pwd
           dir
+      # 成形
+      - name: 成形
+        run: .\text_comvert.bat
+      # batファイル確認
+      - name: バッチ確認
+        run: type make.bat
       # 差分ビルド
       - name: 差分ビルド
-        run: .\text_comvert.bat
-        
+        run: .\make.bat
