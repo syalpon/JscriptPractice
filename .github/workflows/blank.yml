@@ -45,6 +45,8 @@ jobs:
       # フォルダ確認
       - name: ファイル確認
         run: |
+          pwd
+          cd 
           cd JscriptPractice
           dir
       # 差分ビルド
