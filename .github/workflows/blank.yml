@@ -42,5 +42,5 @@ jobs:
           git diff --name-only @^ > temp.txt
       # 差分ビルド
       - name: 差分ビルド
-        run: ls
+        run: CScript -nologo text_comvert.js temp.txt > make.bat
         
