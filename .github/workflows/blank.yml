@@ -41,6 +41,10 @@ jobs:
         run: |
           git diff --name-only @^ 
           git diff --name-only @^ > temp.txt
+      - name : test
+        runs : 
+          using: 'node12'
+          main: text_comvert.js
   update:
     needs: setup
     name: 差分ビルド
@@ -60,8 +64,6 @@ jobs:
       # 成形
       - name: 成形
         run: .\text_comvert.bat
-          using: 'node12'
-          main: text_comvert.js
       # batファイル確認
       - name: バッチ確認
         run: type make.bat
