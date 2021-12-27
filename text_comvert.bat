@@ -1,2 +1,1 @@
-CHCP 65001
-CScript -nologo text_comvert.js temp.txt
+CScript -nologo text_comvert.js temp.txt > make.bat

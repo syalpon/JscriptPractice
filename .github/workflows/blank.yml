@@ -61,6 +61,7 @@ jobs:
         run: |
           git diff --name-only @^ 
           git diff --name-only @^ > temp.txt
+        shell: bash
       # 成形
       - name: 成形
         run: .\text_comvert.bat
