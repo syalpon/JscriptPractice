@@ -36,8 +36,8 @@ jobs:
         uses: tj-actions/changed-files@v10.1
       # テスト
       - uses: ./.github/workflows/composite/diff
-      name: diff
-      id: diff
+        name: diff
+        id: diff
       # 差分のあるファイルを取得
       - name: 差分のあるファイルを取得
         run: |
