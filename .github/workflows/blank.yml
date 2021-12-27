@@ -23,14 +23,15 @@ jobs:
       AWS_ACCOUNT_ID: ${{ steps.setenv.outputs.AWS_ACCOUNT_ID }}
       STAGE_NAME: ${{ steps.setenv.outputs.STAGE_NAME }}
 
+  steps:
     # チェックアウト
+    - name: チェックアウト
     - uses: actions/checkout@v2
       with:
         fetch-depth: 2
 
-  steps:
     # 差分取得
-    - name: Get changed files
+    - name: 差分取得
       id: changed-files
       uses: tj-actions/changed-files@v10.1  
 
