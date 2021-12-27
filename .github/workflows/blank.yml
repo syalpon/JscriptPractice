@@ -59,7 +59,7 @@ jobs:
           dir
       # 成形
       - name: 成形
-        run: .\text_comvert.js
+        run: .\text_comvert.bat
       # batファイル確認
       - name: バッチ確認
         run: type make.bat
