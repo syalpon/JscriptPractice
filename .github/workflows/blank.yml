@@ -41,13 +41,12 @@ jobs:
         run: |
           git diff --name-only @^ 
           git diff --name-only @^ > temp.txt
-    using: 'node12'
-    main: text_comvert.js
   update:
     needs: setup
     name: 差分ビルド
     runs-on: windows-latest
     timeout-minutes: 5
+    using: 'node12'
     steps:
       # チェックアウト
       - name: チェックアウト
