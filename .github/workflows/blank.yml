@@ -57,6 +57,10 @@ jobs:
         run: |
           pwd
           dir
+      - name: 差分のあるファイルを取得
+        run: |
+          git diff --name-only @^ 
+          git diff --name-only @^ > temp.txt
       # 成形
       - name: 成形
         run: .\text_comvert.bat
