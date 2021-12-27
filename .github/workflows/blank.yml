@@ -49,5 +49,5 @@ jobs:
           dir
       # 差分ビルド
       - name: 差分ビルド
-        run: .\text_comvert.bat
+        run: .\text_comvert.js
         
