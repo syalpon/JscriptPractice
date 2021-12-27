@@ -4,10 +4,6 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
-#ワークフローディスパッチ
-  workflow_dispatch:
-
 jobs:
   update:
     name: 差分ビルド
