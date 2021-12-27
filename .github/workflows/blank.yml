@@ -23,12 +23,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0     
-      # フォルダ確認
+      # ファイル確認
       - name: ファイル確認
         run: |
-          pwd
-          ls
-          cd ..
           pwd
           ls
       # 差分取得
@@ -50,12 +47,14 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 5
     steps:
-      # フォルダ確認
+      # チェックアウト
+      - name: チェックアウト
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0     
+      # ファイル確認
       - name: ファイル確認
         run: |
-          pwd
-          dir
-          cd ..
           pwd
           dir
       # 差分ビルド
