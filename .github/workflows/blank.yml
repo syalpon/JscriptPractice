@@ -46,7 +46,6 @@ jobs:
     name: 差分ビルド
     runs-on: windows-latest
     timeout-minutes: 5
-    using: 'node12'
     steps:
       # チェックアウト
       - name: チェックアウト
@@ -60,7 +59,7 @@ jobs:
           dir
       # 成形
       - name: 成形
-        run: .\text_comvert.bat
+        run: .\text_comvert.js
       # batファイル確認
       - name: バッチ確認
         run: type make.bat
