@@ -34,7 +34,6 @@ jobs:
       # 差分のあるファイルを取得
       - name: 差分のあるファイルを取得
         run: |
-          git pull
           git diff --name-only @^ 
           git diff --name-only @^ > temp.txt
   update:
@@ -45,8 +44,10 @@ jobs:
     steps:
       # フォルダ確認
       - name: ファイル確認
-        run: dir
+        run: |
+        cd JscriptPractice
+        dir
       # 差分ビルド
       - name: 差分ビルド
-        run: .\text_comvert.bat
+        run: .\JscriptPractice\text_comvert.bat
         
