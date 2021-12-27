@@ -65,6 +65,7 @@ jobs:
       # 成形
       - name: 成形
         run: .\text_comvert.bat
+        shell: pwsh
       # batファイル確認
       - name: バッチ確認
         run: type make.bat
