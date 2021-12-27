@@ -22,13 +22,22 @@ jobs:
     outputs:
       AWS_ACCOUNT_ID: ${{ steps.setenv.outputs.AWS_ACCOUNT_ID }}
       STAGE_NAME: ${{ steps.setenv.outputs.STAGE_NAME }}
-    steps:
-      - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: 差分のあるファイルを取得
-        run: actions/diff --name-only @^ > diff_file.txt
+  steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
 
-      # Runs a set of commands using the runners shell
-      - name: 差分ビルド
-        run: diff_file.txt
+    # 差分取得
+    - name: Get changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v10.1  
+
+    #
+    - name: 差分のあるファイルを取得
+      run: git diff --name-only @^ > diff_file.txt
+
+    # Runs a set of commands using the runners shell
+    - name: 差分ビルド
+      run: diff_file.txt
