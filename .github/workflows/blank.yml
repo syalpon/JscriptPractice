@@ -1,8 +1,3 @@
-# 題名
-name: Deploy
-env:
-  PROJECT_NAME: sample
-
 # トリガ設定
 on:
   push:
