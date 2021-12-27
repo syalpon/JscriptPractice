@@ -17,14 +17,12 @@ jobs:
   #セットアップ
   setup:
     name: セットアップ
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
       AWS_ACCOUNT_ID: ${{ steps.setenv.outputs.AWS_ACCOUNT_ID }}
       STAGE_NAME: ${{ steps.setenv.outputs.STAGE_NAME }}
     steps:
-      - name: make tempfike
-        run: touch diff_file.txt
       # チェックアウト
       - name: チェックアウト
         uses: actions/checkout@v2
@@ -44,5 +42,5 @@ jobs:
           git diff --name-only @^
       # 差分ビルド
       - name: 差分ビルド
-        run: dir
+        run: ls
         
