@@ -22,7 +22,6 @@ jobs:
     outputs:
       AWS_ACCOUNT_ID: ${{ steps.setenv.outputs.AWS_ACCOUNT_ID }}
       STAGE_NAME: ${{ steps.setenv.outputs.STAGE_NAME }}
-    
     steps:
       - name: make tempfike
         run: touch diff_file.txt
