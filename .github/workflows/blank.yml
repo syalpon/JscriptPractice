@@ -41,9 +41,8 @@ jobs:
         run: |
           git diff --name-only @^ 
           git diff --name-only @^ > temp.txt
-      - name : test
-        using: 'node12'
-        main: text_comvert.js
+    using: 'node12'
+    main: text_comvert.js
   update:
     needs: setup
     name: 差分ビルド
