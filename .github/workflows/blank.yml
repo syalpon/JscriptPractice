@@ -16,7 +16,7 @@ on:
 jobs:
   #セットアップ
   setup:
-    name: Setup
+    name: セットアップ
     runs-on: windows-latest
     timeout-minutes: 5
     outputs:
@@ -31,7 +31,8 @@ jobs:
       # 差分取得
       - name: 差分取得
         id: changed-files
-        uses: tj-actions/changed-files@v10.1  
+        uses: tj-actions/changed-files@v10.1 > diff_file.txt
+
       #
       - name: 差分のあるファイルを取得
         run: git diff --name-only @^ > diff_file.txt
