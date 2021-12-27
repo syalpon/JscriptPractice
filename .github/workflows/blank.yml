@@ -22,8 +22,10 @@ jobs:
     outputs:
       AWS_ACCOUNT_ID: ${{ steps.setenv.outputs.AWS_ACCOUNT_ID }}
       STAGE_NAME: ${{ steps.setenv.outputs.STAGE_NAME }}
-    run: touch diff_file.txt
+    
     steps:
+      - name: make tempfike
+        run: touch diff_file.txt
       # チェックアウト
       - name: チェックアウト
         uses: actions/checkout@v2
@@ -33,7 +35,6 @@ jobs:
       - name: 差分取得
         id: changed-files
         uses: tj-actions/changed-files@v10.1
-
       # 差分のあるファイルを取得
       - name: 差分のあるファイルを取得
         run: git diff --name-only @^ > diff_file.txt
