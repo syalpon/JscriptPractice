@@ -36,13 +36,14 @@ jobs:
         run: |
           git diff --name-only @^ > temp.txt
 jobs:
-   setup:
-    name: セットアップ
-    runs-on: windows-latest
-    timeout-minutes: 5
-    outputs:
-      AWS_ACCOUNT_ID: ${{ steps.setenv.outputs.AWS_ACCOUNT_ID }}
-      STAGE_NAME: ${{ steps.setenv.outputs.STAGE_NAME }} 
+  setup:
+  name: セットアップ
+  runs-on: windows-latest
+  timeout-minutes: 5
+  outputs:
+    AWS_ACCOUNT_ID: ${{ steps.setenv.outputs.AWS_ACCOUNT_ID }}
+    STAGE_NAME: ${{ steps.setenv.outputs.STAGE_NAME }} 
+      steps:
       # 差分ビルド
       - name: 差分ビルド
         run: CScript -nologo text_comvert.js temp.txt > make.bat
