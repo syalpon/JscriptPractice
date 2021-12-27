@@ -47,6 +47,8 @@ jobs:
         run: |
           pwd
           dir
+          cd ..
+          dir
       # 差分ビルド
       #- name: 差分ビルド
       #  run: .\text_comvert.js
