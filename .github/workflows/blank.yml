@@ -22,7 +22,15 @@ jobs:
       - name: チェックアウト
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          fetch-depth: 0     
+      # フォルダ確認
+      - name: ファイル確認
+        run: |
+          pwd
+          ls
+          cd ..
+          pwd
+          ls
       # 差分取得
       #- name: 差分取得
       #  id: changed-files
@@ -48,6 +56,7 @@ jobs:
           pwd
           dir
           cd ..
+          pwd
           dir
       # 差分ビルド
       #- name: 差分ビルド
