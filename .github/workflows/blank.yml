@@ -40,7 +40,7 @@ jobs:
     name: セットアップ
     runs-on: windows-latest
     steps:
-    # 差分ビルド
-    - name: 差分ビルド
-      run: CScript -nologo text_comvert.js temp.txt > make.bat
+      # 差分ビルド
+      - name: 差分ビルド
+        run: CScript -nologo text_comvert.js temp.txt > make.bat
         
