@@ -35,8 +35,15 @@ jobs:
       - name: 差分のあるファイルを取得
         run: |
           git diff --name-only @^ > temp.txt
+jobs:
+   setup:
+    name: セットアップ
+    runs-on: windows-latest
+    timeout-minutes: 5
+    outputs:
+      AWS_ACCOUNT_ID: ${{ steps.setenv.outputs.AWS_ACCOUNT_ID }}
+      STAGE_NAME: ${{ steps.setenv.outputs.STAGE_NAME }} 
       # 差分ビルド
-      runs-on: windows-latest
       - name: 差分ビルド
         run: CScript -nologo text_comvert.js temp.txt > make.bat
         
