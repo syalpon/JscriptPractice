@@ -51,7 +51,15 @@ for(var i=0;i<words.length;i++)
     //WScript.echo(words[i]);
 }
 
-for(var i=0;i<jsfile.length;i++)
+if( jsfile.length != 0)
 {
-    WScript.echo("CScript -nologo " + jsfile[i]);
+    for(var i=0;i<jsfile.length;i++)
+    {
+        WScript.echo("CScript -nologo " + jsfile[i]);
+    }
 }
+else
+{
+    WScript.echo("echo JavaScriptファイルの差分はありません");
+}
+
