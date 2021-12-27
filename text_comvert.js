@@ -1,11 +1,49 @@
 // コマンドライン引数の取得
 var args = WScript.Arguments;
-// コマンドライン引数を全て文字列配列へ変換
-var array = [];
-for (var c = 0; c < args.length; c++ ) {
-    array.push (args(c));
+
+if( args.length != 0)
+{
+    main(args);
 }
 
+//関数
+function main(args)
+{
+    // コマンドライン引数を全て文字列配列へ変換
+    var array = [];
+    for (var c = 0; c < args.length; c++ ) {
+        array.push (args(c));
+    }
+
+    //各行を文字列として抽出
+    var file_text_data = readFile(array[0],false);
+    var words = file_text_data.split('\n');
+
+    //jsだけ抽出
+    var jsfile = [];
+    for(var i=0;i<words.length;i++)
+    {
+        //拡張子の取得
+        var k = words[i].split('.').pop().replace("\r","").replace("\n","");
+        if ( k == "js" )
+        {
+            jsfile.push(words[i]);
+        }
+        //WScript.echo(words[i]);
+    }
+
+    if( jsfile.length != 0)
+    {
+        for(var i=0;i<jsfile.length;i++)
+        {
+            WScript.echo("CScript -nologo " + jsfile[i]);
+        }
+    }
+    else
+    {
+        WScript.echo("echo JavaScriptファイルの差分はありません");
+    }
+}
 //ファイルオープン
 /// isArray:booleanで戻り値を配列にするか文字列にするか　
 function readFile (filename, isArray)
@@ -33,33 +71,3 @@ function readFile (filename, isArray)
     file.Close ();
     return reader;
 }
-
-//各行を文字列として抽出
-var file_text_data = readFile(array[0],false);
-var words = file_text_data.split('\n');
-
-//jsだけ抽出
-var jsfile = [];
-for(var i=0;i<words.length;i++)
-{
-    //拡張子の取得
-    var k = words[i].split('.').pop().replace("\r","").replace("\n","");
-    if ( k == "js" )
-    {
-        jsfile.push(words[i]);
-    }
-    //WScript.echo(words[i]);
-}
-
-if( jsfile.length != 0)
-{
-    for(var i=0;i<jsfile.length;i++)
-    {
-        WScript.echo("CScript -nologo " + jsfile[i]);
-    }
-}
-else
-{
-    WScript.echo("echo JavaScriptファイルの差分はありません");
-}
-
