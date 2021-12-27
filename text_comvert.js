@@ -31,9 +31,11 @@ function main(args)
         }
         //WScript.echo(words[i]);
     }
-
+    
+    WScript.echo("CHCP 65001");
     if( jsfile.length != 0)
     {
+
         for(var i=0;i<jsfile.length;i++)
         {
             WScript.echo("CScript -nologo " + jsfile[i]);
