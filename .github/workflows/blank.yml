@@ -1,9 +1,9 @@
-#題名
+# 題名
 name: Deploy
 env:
   PROJECT_NAME: sample
 
-#トリガ設定
+# トリガ設定
 on:
   push:
     branches: [ master ]
@@ -22,10 +22,7 @@ jobs:
     outputs:
       AWS_ACCOUNT_ID: ${{ steps.setenv.outputs.AWS_ACCOUNT_ID }}
       STAGE_NAME: ${{ steps.setenv.outputs.STAGE_NAME }}
-  
-  build:
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
